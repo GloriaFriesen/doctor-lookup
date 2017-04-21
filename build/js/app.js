@@ -8,7 +8,7 @@ function Doctor() {
 }
 
 Doctor.prototype.getDoctor = function(firstName, lastName, displayDoctor) {
-  $.get('https://api.betterdoctor.com/2016-03-01/doctors?first_name=' + firstName + '&last_name=' + lastName + '&location=or-portland&gender=male&skip=0&limit=10&user_key=' + apiKey).then(function(response) {
+  $.get('https://api.betterdoctor.com/2016-03-01/doctors?first_name=' + firstName + '&last_name=' + lastName + '&location=or-portland&gender=male&skip=0&limit=100&user_key=' + apiKey).then(function(response) {
     console.log(response.data);
     displayDoctor(response.data);
   }).fail(function(error) {
@@ -22,10 +22,20 @@ exports.doctorModule = Doctor;
 var Doctor = require('./../js/doctor.js').doctorModule;
 
 var displayDoctor = function(doctors) {
+  $("#results").show();
   doctors.forEach(function(doctor) {
-    $("#results").append("<p>" + doctor.profile.first_name + "</p>");
+    $("#results").append('<div class="panel panel-default">' +
+                              '<div class="panel-heading">' +
+                                '<h3 class="panel-title">' + doctor.profile.first_name + ' ' + doctor.profile.last_name +
+                                '</h3>' +
+                              '</div>' +
+                              '<div class="panel-body">' +
+                                doctor.profile.bio +
+                              '</div>' +
+                            '</div>');
   });
 };
+
 
 $(document).ready(function() {
   var doctorObject = new Doctor();

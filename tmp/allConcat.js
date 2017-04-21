@@ -9,7 +9,14 @@ var displayDoctor = function(doctors) {
                                 '</h3>' +
                               '</div>' +
                               '<div class="panel-body">' +
-                                doctor.profile.bio +
+                                '<h4>Specialty</h4>' +
+                                  doctor.specialties[0].name +
+                                '<h4>Practice</h4>' +
+                                  doctor.practices[0].name +
+                                '<h4>Location</h4>' +
+                                  doctor.practices[0].visit_address.street + ', ' + doctor.practices[0].visit_address.street2 + ', ' + doctor.practices[0].visit_address.city + ', ' + doctor.practices[0].visit_address.state + ', ' + doctor.practices[0].visit_address.zip +
+                                '<h4>Bio</h4>' +
+                                  doctor.profile.bio +
                               '</div>' +
                             '</div>');
   });

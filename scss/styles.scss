@@ -1,3 +1,32 @@
+$black : #FEFEE7;
+$green : #A4D0C4;
+$teal : #72C4B9;
+$grey : #9A9C9F;
+$light : #0F0F0D;
+
 #results {
   display: none;
 }
+
+html, body {
+  background-color: $black;
+}
+
+.btn {
+  background-color: $teal;
+  border: $teal;
+  color: $light;
+}
+
+.btn:hover {
+  background-color: $grey;
+  color: $black;
+}
+
+.panel {
+  background-color: $teal;
+}
+
+// .panel-title {
+//   background-color: $grey;
+// }

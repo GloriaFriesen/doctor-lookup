@@ -43,10 +43,11 @@ $(document).ready(function() {
   $('#search').click(function() {
     var firstName = $('#firstName').val();
     var lastName = $('#lastName').val();
+    var city = $('#city').val().toLowerCase();
     var state = $('#state').val();
-    console.log(state);
     $('#firstName').val("");
     $('#lastName').val("");
-    doctorObject.getDoctor(firstName, lastName, displayDoctor);
+    $('#city').val("");
+    doctorObject.getDoctor(firstName, lastName, city, state, displayDoctor);
   });
 });

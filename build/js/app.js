@@ -8,12 +8,9 @@ function Doctor() {
 }
 
 Doctor.prototype.getDoctor = function(firstName, lastName, displayDoctor) {
-  debugger;
   $.get('https://api.betterdoctor.com/2016-03-01/doctors?first_name=' + firstName + '&last_name=' + lastName + '&location=or-portland&skip=0&limit=100&user_key=' + apiKey).then(function(response) {
-    console.log(response);
     displayDoctor(response.data);
   }).fail(function(error) {
-    console.log(error);
     $('#doctors').text(error.responseJSON.message);
   });
 };
@@ -22,6 +19,14 @@ exports.doctorModule = Doctor;
 
 },{"./../.env":1}],3:[function(require,module,exports){
 var Doctor = require('./../js/doctor.js').doctorModule;
+
+var verifyInfo = function(doctor) {
+  if (doctor === undefined) {
+    console.log("no 2nd address");
+  } else {
+    console.log("should be working");
+  }
+}
 
 var displayDoctor = function(doctors) {
   for (var i = 0; i < doctors.length; i += 1) {
@@ -58,6 +63,8 @@ $(document).ready(function() {
   $('#search').click(function() {
     var firstName = $('#firstName').val();
     var lastName = $('#lastName').val();
+    var state = $('#state').val();
+    console.log(state);
     $('#firstName').val("");
     $('#lastName').val("");
     doctorObject.getDoctor(firstName, lastName, displayDoctor);

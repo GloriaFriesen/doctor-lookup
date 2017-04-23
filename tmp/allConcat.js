@@ -1,5 +1,13 @@
 var Doctor = require('./../js/doctor.js').doctorModule;
 
+var verifyInfo = function(doctor) {
+  if (doctor === undefined) {
+    console.log("no 2nd address");
+  } else {
+    console.log("should be working");
+  }
+}
+
 var displayDoctor = function(doctors) {
   for (var i = 0; i < doctors.length; i += 1) {
     try {
@@ -35,6 +43,8 @@ $(document).ready(function() {
   $('#search').click(function() {
     var firstName = $('#firstName').val();
     var lastName = $('#lastName').val();
+    var state = $('#state').val();
+    console.log(state);
     $('#firstName').val("");
     $('#lastName').val("");
     doctorObject.getDoctor(firstName, lastName, displayDoctor);

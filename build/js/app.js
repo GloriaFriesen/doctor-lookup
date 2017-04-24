@@ -18,13 +18,11 @@ Doctor.prototype.getDoctor = function(firstName, lastName, city, state, displayD
   } else {
     apiUrl = 'https://api.betterdoctor.com/2016-03-01/doctors?first_name=' + firstName + '&last_name=' + lastName + '&location=' + state + '-' + city + '&skip=0&limit=100&user_key=' + apiKey
   }
-
   $.get(apiUrl).then(function(response) {
     if (response.data.length < 1) {
       $('#results').html("<h4>No doctors were found using your search criteria, please try again.</h4>");
     } else {
       displayDoctor(response.data);
-      console.log(response.data);
     }
   }).fail(function(error) {
     $('#results').text(error.responseJSON.message);
@@ -56,7 +54,7 @@ var displayDoctor = function(doctors) {
                                     '<h4>Practice</h4>' +
                                       doctors[i].practices[0].name +
                                     '<h4>Location</h4>' +
-                                      doctors[i].practices[0].visit_address.street + ', ' + doctors[i].practices[0].visit_address.street2 + ', ' + doctors[i].practices[0].visit_address.city + ', ' + doctors[i].practices[0].visit_address.state + ', ' + doctors[i].practices[0].visit_address.zip +
+                                      doctors[i].practices[0].visit_address.street + ', ' + doctors[i].practices[0].visit_address.city + ', ' + doctors[i].practices[0].visit_address.state + ', ' + doctors[i].practices[0].visit_address.zip +
                                     '<h4>NPI</h4>' +
                                       doctors[i].npi +
                                     '<h4>Bio</h4>' +
@@ -71,11 +69,12 @@ var displayDoctor = function(doctors) {
 
 $(document).ready(function() {
   var doctorObject = new Doctor();
-  $('#search').click(function() {
+  $('#search').submit(function() {
+    event.preventDefault();
     $('#results').empty();
-    var firstName = $('#firstName').val();
-    var lastName = $('#lastName').val();
-    var city = $('#city').val().toLowerCase();
+    var firstName = $('#firstName').val().replace(" ", "-");
+    var lastName = $('#lastName').val().replace(" ", "-");
+    var city = $('#city').val().toLowerCase().replace(" ", "-");
     var state = $('#state').val();
     $('#firstName').val("");
     $('#lastName').val("");

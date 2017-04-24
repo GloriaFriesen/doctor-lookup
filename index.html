@@ -14,11 +14,12 @@
     </div>
     <h4>Seach by first name, last name, or city and state to find a list of doctors.</h4>
     <div id="form">
+    <form id="search">
       <input id="firstName" type="text" placeholder="First Name" class="form-control">
       <input id="lastName" type="text" placeholder="Last Name" class="form-control">
       <br>
       <div class="form-group">
-        <input id="city" type="text" placeholder="City" class="form-control">
+        <input id="city" type="text" placeholder="City" class="form-control" required>
         <select id="state">
       	<option value="al">Alabama</option>
       	<option value="ak">Alaska</option>
@@ -73,7 +74,9 @@
       	<option value="wy">Wyoming</option>
       </select>
       </div>
-      <button class="btn btn-success" id="search">Find Doctors</button>
+      <button class="btn btn-success">Find Doctors</button>
+    </form>
+
     </div>
     <div id="results">
     </div>

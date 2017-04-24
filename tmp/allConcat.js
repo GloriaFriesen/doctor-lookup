@@ -20,7 +20,7 @@ var displayDoctor = function(doctors) {
                                     '<h4>Practice</h4>' +
                                       doctors[i].practices[0].name +
                                     '<h4>Location</h4>' +
-                                      doctors[i].practices[0].visit_address.street + ', ' + doctors[i].practices[0].visit_address.street2 + ', ' + doctors[i].practices[0].visit_address.city + ', ' + doctors[i].practices[0].visit_address.state + ', ' + doctors[i].practices[0].visit_address.zip +
+                                      doctors[i].practices[0].visit_address.street + ', ' + doctors[i].practices[0].visit_address.city + ', ' + doctors[i].practices[0].visit_address.state + ', ' + doctors[i].practices[0].visit_address.zip +
                                     '<h4>NPI</h4>' +
                                       doctors[i].npi +
                                     '<h4>Bio</h4>' +
@@ -35,11 +35,12 @@ var displayDoctor = function(doctors) {
 
 $(document).ready(function() {
   var doctorObject = new Doctor();
-  $('#search').click(function() {
+  $('#search').submit(function() {
+    event.preventDefault();
     $('#results').empty();
-    var firstName = $('#firstName').val();
-    var lastName = $('#lastName').val();
-    var city = $('#city').val().toLowerCase();
+    var firstName = $('#firstName').val().replace(" ", "-");
+    var lastName = $('#lastName').val().replace(" ", "-");
+    var city = $('#city').val().toLowerCase().replace(" ", "-");
     var state = $('#state').val();
     $('#firstName').val("");
     $('#lastName').val("");

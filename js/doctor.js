@@ -20,6 +20,7 @@ Doctor.prototype.getDoctor = function(firstName, lastName, city, state, displayD
       $('#results').html("<h4>No doctors were found using your search criteria, please try again.</h4>");
     } else {
       displayDoctor(response.data);
+      console.log(response.data);
     }
   }).fail(function(error) {
     $('#results').text(error.responseJSON.message);

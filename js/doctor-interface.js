@@ -14,12 +14,15 @@ var displayDoctor = function(doctors) {
                                 '</div>' +
                                 '<div id="collapse' + i + '" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading' + i + '">' +
                                   '<div class="panel-body">' +
+                                    '<img src=' + doctors[i].profile.image_url + '>' +
                                     '<h4>Specialty</h4>' +
                                       doctors[i].specialties[0].name +
                                     '<h4>Practice</h4>' +
                                       doctors[i].practices[0].name +
                                     '<h4>Location</h4>' +
                                       doctors[i].practices[0].visit_address.street + ', ' + doctors[i].practices[0].visit_address.street2 + ', ' + doctors[i].practices[0].visit_address.city + ', ' + doctors[i].practices[0].visit_address.state + ', ' + doctors[i].practices[0].visit_address.zip +
+                                    '<h4>NPI</h4>' +
+                                      doctors[i].npi +
                                     '<h4>Bio</h4>' +
                                       doctors[i].profile.bio +
                                   '</div>' +

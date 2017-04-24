@@ -33,8 +33,14 @@ var displayDoctor = function(doctors) {
   }
 };
 
+
 $(document).ready(function() {
   var doctorObject = new Doctor();
+  $(".js-example-placeholder-single").select2({
+    placeholder: "State",
+    allowClear: true
+  });
+
   $('#search').submit(function() {
     event.preventDefault();
     $('#results').empty();

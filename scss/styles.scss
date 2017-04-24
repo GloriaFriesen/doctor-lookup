@@ -5,24 +5,34 @@ $grey : #9A9C9F;
 $light : #0F0F0D;
 
 html, body {
-  background-color: $black;
+  background-color: $teal;
 }
 
 .btn {
-  background-color: $teal;
-  border: $teal;
-  color: $light;
+  background-color: $black;
+  border: $black;
+  color: $grey;
 }
 
 .btn:hover {
   background-color: $grey;
-  color: $black;
+  color: $light;
 }
 
 .panel {
-  background-color: $teal;
+  background-color: $grey;
+}
+
+.jumbotron {
+  background-color: $grey;
 }
 
 img {
   float: right;
+}
+
+#form {
+  margin-bottom: 20px;
+  border-bottom: 3px solid $black;
+  padding-bottom: 20px;
 }

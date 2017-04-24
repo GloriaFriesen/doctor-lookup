@@ -36,6 +36,7 @@ var displayDoctor = function(doctors) {
 $(document).ready(function() {
   var doctorObject = new Doctor();
   $('#search').click(function() {
+    $('#results').empty();
     var firstName = $('#firstName').val();
     var lastName = $('#lastName').val();
     var city = $('#city').val().toLowerCase();

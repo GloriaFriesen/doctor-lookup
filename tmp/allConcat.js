@@ -1,13 +1,5 @@
 var Doctor = require('./../js/doctor.js').doctorModule;
 
-var verifyInfo = function(doctor) {
-  if (doctor === undefined) {
-    console.log("no 2nd address");
-  } else {
-    console.log("should be working");
-  }
-}
-
 var displayDoctor = function(doctors) {
   for (var i = 0; i < doctors.length; i += 1) {
     try {

@@ -7,7 +7,7 @@ var displayDoctor = function(doctors) {
                               '<div class="panel panel-default">' +
                                 '<div class="panel-heading" role="tab" + id="heading' + i + '">' +
                                   '<h3 class="panel-title">' +
-                                    '<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse' + i + '" aria-expanded="true" aria-controls="collapse' + i + '">' +
+                                    '<a class="btn-block" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse' + i + '" aria-expanded="true" aria-controls="collapse' + i + '">' +
                                       doctors[i].profile.first_name + ' ' + doctors[i].profile.last_name +
                                     '</a>' +
                                   '</h3>' +

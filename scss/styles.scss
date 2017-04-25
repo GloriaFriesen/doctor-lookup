@@ -1,30 +1,40 @@
-$black : #FEFEE7;
-$green : #A4D0C4;
-$teal : #72C4B9;
-$grey : #9A9C9F;
-$light : #0F0F0D;
+$black : #040C0E;
+$darkgrey : #132226;
+$blue: #36688D;
+$grey : #525B56;
+$light : #BE9063;
+$beige : #A4978E;
 
 html, body {
-  background-color: $teal;
+  background-color: $darkgrey;
+  color: $light;
 }
 
 .btn {
-  background-color: $black;
-  border: $black;
-  color: $grey;
+  background-color: $grey;
+  border: $grey;
+  color: $darkgrey;
 }
 
 .btn:hover {
-  background-color: $grey;
-  color: $light;
+  background-color: $blue;
+  color: $darkgrey;
 }
 
 .panel {
   background-color: $grey;
+  color: $black;
 }
 
 .jumbotron {
-  background-color: $grey;
+  background-image: url('/img/bricks.jpg');
+  color: $black;
+}
+
+h1 {
+  font-size: 50px;
+  text-shadow: 2px 2px 1px $grey;
+  font-weight: bold;
 }
 
 img {
@@ -32,11 +42,42 @@ img {
 }
 
 #form {
-  margin-bottom: 20px;
+  margin: 0 auto;
+  padding: 50px;
+  width: 700px;
+}
+
+#divider {
   border-bottom: 3px solid $black;
-  padding-bottom: 20px;
+  margin-bottom: 50px;
 }
 
 #loading {
   display: none;
+}
+
+h3 {
+  text-align: center;
+}
+
+div.panel.panel-default {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+a.btn-block:hover {
+  text-decoration: none;
+  background-color: $blue;
+  color: $darkgrey;
+}
+
+
+a.btn-block {
+  padding: 10px;
+  background-color: $beige;
+}
+
+
+.panel-heading {
+  padding: 0px;
 }

@@ -42,6 +42,7 @@ $(document).ready(function() {
   });
 
   $('#search').submit(function() {
+    $("#loading").show();
     event.preventDefault();
     $('#results').empty();
     var firstName = $('#firstName').val().replace(" ", "-");

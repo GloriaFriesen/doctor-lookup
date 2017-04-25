@@ -15,6 +15,7 @@ Doctor.prototype.getDoctor = function(firstName, lastName, city, state, displayD
     apiUrl = 'https://api.betterdoctor.com/2016-03-01/doctors?first_name=' + firstName + '&last_name=' + lastName + '&location=' + state + '-' + city + '&skip=0&limit=100&user_key=' + apiKey
   }
   $.get(apiUrl).then(function(response) {
+    $("#loading").hide();
     if (response.data.length < 1) {
       $('#results').html("<h4>No doctors were found using your search criteria, please try again.</h4>");
     } else {
